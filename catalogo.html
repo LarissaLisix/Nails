@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <style>
+        body { 
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    font-family: "Grey Qo", cursive;
+    font-weight: 900;
+    font-style: normal;
+    text-align: center;
+    background-size: 100px;
+}
+
+.menu {
+    box-sizing: border-box;
+    background: 
+        url("img/logo.png") no-repeat left center,
+        linear-gradient(to bottom, rgba(244, 132, 204, 1), rgba(235, 36, 140, 1));
+    background-size: 250px, cover;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 200px;
+    position: relative;
+    z-index: 1;
+
+    
+}
+
+.optm {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding-right: 20px;
+    background: linear-gradient(to right, #D4AF37, #FFD700, #C5A880);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+.optm a {
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 
+        0px 0px 2px #FFD700,
+        0px 0px 4px #FFD700,
+        0px 0px 6px #FFD700,
+        0px 0px 10px #FFEB3B;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Animação de brilho */
+@keyframes brilho {
+    0% { text-shadow: 0px 0px 4px #FFD700; }
+    50% { text-shadow: 0px 0px 10px #FFD700, 0px 0px 20px #FFEB3B; }
+    100% { text-shadow: 0px 0px 4px #FFD700; }
+}
+
+.optm a:hover {
+    color: #FFD700;
+    animation: brilho 0.8s ease-in-out infinite;
+}
+        /* Estilo básico para o container de serviços */
+.servicos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between; /* Adiciona espaço entre as colunas */
+    padding: 20px;
+}
+
+/* Estilo para cada serviço */
+.servico {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: calc(33.33% - 15px); /* Cada serviço ocupa um terço do container */
+    box-sizing: border-box;
+}
+
+/* Estilo do botão dentro de cada serviço */
+.servico-botao {
+    background-color: rgba(235, 36, 140, 0.8);
+    color: black;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.servico-botao:hover {
+    background-color: gold;
+}
+
+/* Título de cada serviço */
+.servico-titulo {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <nav class="optm">
+            <a href="index.html">Página inicial</a>
+            <a href="agenda.html">Agenda</a>
+            <a href="catalogo.html">Catálogo</a>
+        </nav>
+    </div>
+
+    <h1>Catálogo</h1>
+
+    <h3>Serviços Cabelereira:</h3>                                  
+    <div class="servicos">
+        <div class="servico">
+            <button class="servico-botao">
+                <span class="servico-titulo">BOTOX CABELO MÉDIO</span>
+                <span>2 h 30 min - R$100,00</span>
+            </button>
+        </div>
+
+        <div class="servico">
+            <button class="servico-botao">
+                <span class="servico-titulo">BOTOX CAPILAR CABELO LONGO</span>
+                <span>2 h 30 min - R$130,00</span>
+            </button>
+        </div>
+
+        <div class="servico">
+            <button class="servico-botao">
+                <span class="servico-titulo">BOTOX CAPILAR CURTO</span>
+                <span>2 h 30 min - R$80,00</span>
+            </button>
+        </div>
+
+        <div class="servico">
+            <button class="servico-botao">
+                <span class="servico-titulo">CORTE SIMPLES</span>
+                <span>Incluso corte de pontas</span>
+                <span>35 min - R$25,00</span>
+            </button>
+        </div>
+
+        <div class="servico">
+            <button class="servico-botao">
+                <span class="servico-titulo">ESCOVA COM HIDRATAÇÃO</span>
+                <span>Serviço incluso laserterapia e ozônio terapia. Valores definido por tamanho: Curto R$30,00; Médio R$35,00; Longo R$40,00</span>
+                <span>1 h 40 min - R$35,00</span>
+            </button>
+        </div>
+
+        <div class="servico">
+            <button class="servico-botao">
+                <span class="servico-titulo">ESCOVA COM RECONSTRUÇÃO</span>
+                <span>Serviço incluso laserterapia e ozônio terapia. Valores definidos por tamanho: Curto R$40,00; Médio R$45,00; Longo R$55,00.</span>
+                <span>1 h 40 min - R$40,00</span>
+            </button>
+        </div>
+
+        <div class="servico">
+            <button class="servico-botao">
+                <span class="servico-titulo">ESCOVA SIMPLES</span>
+                <span>Valores definidos por tamanho: Curto R$30,00; Médio R$35,00; Longo R$40,00</span>
+                <span>1 h 20 min - R$30,00</span>
+            </button>
+        </div>
+
+        <div class="servico">
+            <button class="servico-botao">
+                <span class="servico-titulo">LISOTERAPIA CABELO CURTO</span>
+                <span>3 h - R$100,00</span>
+            </button>
+        </div>
+
+        <div class="servico">
+            <button class="servico-botao">
+                <span class="servico-titulo">LISOTERAPIA CABELO GRANDE</span>
+                <span>3 h - R$160,00</span>
+            </button>
+        </div>
+        <div class="servico">
+            <button class="servico-botao">
+            <span class="servico-titulo">LISOTERAPIA CABELO MÉDIO</span>
+            <span>3 h - R$130,00</span>
+        </button>
+        </div>
+        <div class="servico">
+            <button class="servico-botao">
+            <span class="servico-titulo">PROGRESSIVA COM FORMOL CABELO CURTO</span>
+            <span>3 h - R$130,00</span>
+        </button>
+        </div>
+        <div class="servico">
+            <button class="servico-botao">
+            <span class="servico-titulo">PROGRESSIVA COM FORMOL CANELO MÉDIO</span>
+            <span>3 h - R$150,00</span>
+        </button>
+        </div>
+        <div class="servico">
+            <button class="servico-botao">
+            <span class="servico-titulo">SELAGEM CABELO CURTO</span>
+            <span>3 h - R$ 100,00</span>
+        </button>
+        </div>
+        <div class="servico">
+        <button class="servico-botao">
+        <span class="servico-titulo">SELAGEM CABELO MÉDIO</span>
+        <span>3 h - R$ 120,00</span>
+    </button>
+        </div>
+        <div class="servico">
+            <button class="servico-botao">
+            <span class="servico-titulo">TINTURA</span>
+            <span>tinta do cliente , incluso secagem</span>
+            <span>1 h 20 min - R$ 30,00</span>
+        </button>
+        </div>
+        <div class="servico">
+            <button class="servico-botao">
+            <span class="servico-titulo">TINTURA PROFISSIONAL</span>
+            <span>incluso tinta profissional, somente secagem</span>
+            <span>1 h 20 - R$ 110,00</span>
+        </button>
+        </div>
+    </div>
+</body>
+</html>

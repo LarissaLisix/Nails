@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+body { 
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    font-family: "Grey Qo", cursive;
+    font-weight: 900;
+    font-style: normal;
+    text-align: center;
+    background-size: 100px;
+}
+
+.menu {
+    box-sizing: border-box;
+    background: 
+        url("img/logo.png") no-repeat left center,
+        linear-gradient(to bottom, rgba(244, 132, 204, 1), rgba(235, 36, 140, 1));
+    background-size: 250px, cover;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 200px;
+    position: relative;
+    z-index: 1;
+
+    
+}
+
+.optm {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding-right: 20px;
+    background: linear-gradient(to right, #D4AF37, #FFD700, #C5A880);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+.optm a {
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 
+        0px 0px 2px #FFD700,
+        0px 0px 4px #FFD700,
+        0px 0px 6px #FFD700,
+        0px 0px 10px #FFEB3B;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Animação de brilho */
+@keyframes brilho {
+    0% { text-shadow: 0px 0px 4px #FFD700; }
+    50% { text-shadow: 0px 0px 10px #FFD700, 0px 0px 20px #FFEB3B; }
+    100% { text-shadow: 0px 0px 4px #FFD700; }
+}
+
+.optm a:hover {
+    color: #FFD700;
+    animation: brilho 0.8s ease-in-out infinite;
+}
+
+/* Caixa contendo o texto e a foto */
+.caixa-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border:2px solid #D4AF37;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    max-width: auto;
+    max-height: 600px;
+}
+
+/* Estilo do texto */
+.caixa-texto {
+    max-width: 50%;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Estilo do título */
+.caixa-texto h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #D4AF37; /* Cor dourada */
+}
+
+/* Estilo do parágrafo */
+.caixa-texto p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.caixa-texto h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #D4AF37; /* Cor dourada */
+}
+
+/* Estilo da foto da requerente */
+.ft-requerente img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin:60px;
+    max-width: 80%;
+}
+
+/*comentarios*/
+/* Seção de comentários */
+.comentarios-secao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px; /* Espaço entre os elementos */
+    justify-content: flex-start; /* Alinha os comentários à esquerda */
+}
+
+/* Estilo do comentário */
+.comentarios {
+    display: flex;
+    flex-direction: column; /* Coloca os itens em uma coluna */
+    align-items: center; /* Alinha os itens no centro */
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: calc(33.33% - 15px); 
+    min-width: 280px; /* Define uma largura mínima para os comentários */
+    max-width: 350px; /* Define uma largura máxima */
+    min-height: 100px; /* Altura mínima para uniformizar */
+    box-sizing: border-box; /* Garante que o padding e a largura não se sobreponham */
+}
+
+/* Estilo da foto (à esquerda) */
+.comentarios img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px; /* Espaço abaixo da imagem */
+    object-fit: cover; /* Ajusta a imagem para caber no círculo */
+}
+
+/* Título centralizado */
+.comentarios h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #D4AF37;
+    text-align: center; /* Centraliza o título */
+}
+
+/* Comentário abaixo do título */
+.comentarios p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #333;
+    text-align: center; /* Centraliza o comentário */
+}
+
+
+
+/* Estilo para o botão */
+.botao-fixo {
+    position: fixed;
+    bottom: 20px; /* Distância da parte inferior da tela */
+    right: 20px; /* Distância da parte direita da tela */
+    background-color: #D4AF37; 
+    color: white; 
+    padding: 20px; /* Espaçamento interno para tornar o botão redondo */
+    border-radius: 50%; /* Faz o botão ficar redondo */
+    text-decoration: none; 
+    font-weight: bold;
+    text-align: center; 
+    font-size: 18px;
+    width: 40px; /* Largura do botão */
+    height: 40px; /* Altura do botão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.local{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.local img{
+    width: 600px;
+
+}
+.local .caixa-texto {
+    text-align: center;
+}
+.local .caixa-texto button {
+    background: linear-gradient(to right, #D4AF37, #FFD700);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.local .caixa-texto button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    
+}
+/*rodape*/
+footer {
+    background:rgba(235, 36, 140, 1);
+    color: #fff;
+    padding: 20px 0;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.rodape-coluna {
+    width: 30%;
+}
+
+.rodape-coluna h3 {
+    color: #ffd700; /* Exemplo de cor dourada */
+    margin-bottom: 10px;
+}
+
+.rodape-coluna p, .rodape-coluna a {
+    color: #ccc;
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+.rodape-coluna a:hover {
+    color: #ffd700; /* Efeito de hover para os links */
+}
+
+
+/* Estilo do .tt */
+/* Estilo refinado usando a fonte Quicksand */
+.tt {
+    font-family: 'Quicksand', sans-serif; /* Fonte Quicksand para um toque moderno */
+    font-size: 22px; /* Tamanho de fonte adequado */
+    color: #D4AF37; /* Cor dourada para um toque elegante */
+    text-align: center; /* Centraliza o texto */
+    font-weight: bold; /* Mantém o texto em negrito */
+    letter-spacing: 1px; /* Aumenta o espaçamento entre as letras */
+    text-transform: uppercase; /* Letras maiúsculas para mais impacto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombras sutis */
+    transition: color 0.3s ease, transform 0.3s ease; /* Suaviza transições */
+}
+
+/* Efeito ao passar o mouse */
+.tt:hover {
+    color: #FFD700; /* Um tom dourado mais brilhante ao passar o mouse */
+    transform: translateY(-3px); /* Leve movimento para cima */
+}
+
+
+.carrossel-container {
+    width: 50%;
+    max-width: 800px; /* Limite de largura do carrossel */
+    position: relative;
+    overflow: hidden;
+    display: inline-block; /* Ajusta o carrossel para ocupar apenas o espaço necessário */
+    transform: translate();
+    
+  }
+  
+  .carrossel {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .carrossel img {
+    width: 100%;          /* Imagens ocupando 100% da largura do carrossel */
+    height: 100%;         /* Garantir que as imagens ocupem toda a altura */
+    object-fit: cover;    /* Imagens ficam ajustadas sem distorcer */
+    
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+
+  .carrossel-texto{
+    text-align: right;
+    display: inline-block;
+    width: 300px; /* Defina a largura necessária para o texto */
+    margin-left:250px; /* Espaço entre o carrossel e o texto */
+    left: -0px;
+    height: 100%;
+    transform: translate(-35%,-120%);
+    
+    
+    
+  }

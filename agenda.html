@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - Espaço Dellas</title>
+    <style>
+        /* Estilos do menu */
+        .menu {
+            box-sizing: border-box;
+            background:
+                url("img/logo.png") no-repeat left center,
+                linear-gradient(to bottom, rgba(244, 132, 204, 1), rgba(235, 36, 140, 1));
+            background-size: 250px, cover;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .optm {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100%;
+            padding-right: 20px;
+            background: linear-gradient(to right, #D4AF37, #FFD700, #C5A880);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
+        .optm a {
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            text-shadow:
+                0px 0px 2px #FFD700,
+                0px 0px 4px #FFD700,
+                0px 0px 6px #FFD700,
+                0px 0px 10px #FFEB3B;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        /* Estilos para a seção de agendamento */
+        .agenda-section {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #FFF0F5;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .agenda-section h1 {
+            color: #EB248C;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .form-agenda {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-agenda label {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0 5px;
+        }
+
+        .form-agenda input, .form-agenda select {
+            padding: 10px;
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-agenda button {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #EB248C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-agenda button:hover {
+            background-color: #D61E75;
+        }
+
+        /* Estilos do Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            z-index: 1000;
+            text-align: center;
+            width: 300px;
+            border-radius: 10px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .close-btn {
+            cursor: pointer;
+            color: red;
+            font-weight: bold;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu de navegação -->
+    <div class="menu">
+        <nav class="optm">
+            <a href="index.html">Pagina inicial</a>
+            <a href="agenda.html">Agenda</a>
+            <a href="catalogo.html">Catálogo</a>
+        </nav>
+    </div>
+
+    <!-- Conteúdo da página de agendamento -->
+    <section class="agenda-section">
+        <h1>Agende seu horário no Espaço Dellas</h1>
+        <form class="form-agenda" onsubmit="event.preventDefault(); openPopup();">
+            <label for="nome">Nome completo:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" maxlength="15" required placeholder="(XX) XXXXX-XXXX">
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="hora">Horário:</label>
+            <input type="time" id="hora" name="hora" required>
+
+            <label for="servico">Serviço:</label>
+            <select id="servico" name="servico" required>
+                <option value="" disabled selected>Escolha um serviço</option>
+                <option value="corte">Corte de Cabelo</option>
+                <option value="manicure">Manicure</option>
+                <option value="pedicure">Pedicure</option>
+                <option value="hidratação">Hidratação Capilar</option>
+                <option value="coloração">Coloração</option>
+            </select>
+
+            <button type="submit">Agendar</button>
+        </form>
+    </section>
+
+    <!-- Estrutura do Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <span class="close-btn" onclick="closePopup()">✖</span>
+        <h2>🥳 SEU AGENDAMENTO FOI MARCADO 🥳</h2>
+        <p>🎉 Seu agendamento foi marcado com sucesso! 🎉</p>
+        <p>Data: <span id="popup-data"></span> | Hora: <span id="popup-hora"></span></p>
+        <p>Estamos te aguardando ansiosamente. Até lá! 😘</p>
+    </div>
+
+    <!-- Script do Popup -->
+    <script>
+        function openPopup() {
+            // Pegar os valores preenchidos no formulário
+            const data = document.getElementById('data').value;
+            const hora = document.getElementById('hora').value;
+
+            // Converter a data para o formato dd/mm/yyyy
+            const [ano, mes, dia] = data.split('-');
+            const dataFormatada = `${dia}/${mes}/${ano}`;
+
+            // Exibir os valores no popup
+            document.getElementById('popup-data').innerText = dataFormatada;
+            document.getElementById('popup-hora').innerText = hora;
+
+            // Mostrar o popup e o overlay
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        document.getElementById('telefone').addEventListener('input', function (event) {
+            let input = event.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            input = input.substring(0, 11); // Limita a 11 dígitos
+            
+            if (input.length > 10) { // Formato celular (11 dígitos)
+                input = input.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+            } else if (input.length > 6) { // Formato fixo (10 dígitos)
+                input = input.replace(/^(\d{2})(\d{4})(\d{4})$/, "($1) $2-$3");
+            } else { // Menos de 6 dígitos
+                input = input.replace(/^(\d{2})(\d{0,5})$/, "($1) $2");
+            }
+            
+            event.target.value = input;
+        });
+    </script>
+
+</body>
+</html>
