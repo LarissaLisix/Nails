@@ -4,6 +4,8 @@ Este projeto acadêmico foi desenvolvido com o objetivo de contribuir com o cres
 
 Video do youtube:
 https://www.youtube.com/watch?v=T_Q3aCZ_1rw&ab_channel=WesleyGuimar%C3%A3es
+Site Nails:
+https://larissalisix.github.io/Nails/
 
 
 
