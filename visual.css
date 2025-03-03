@@ -343,3 +343,141 @@ footer {
     
     
   }
+
+  /* Media Queries para Responsividade */
+
+/* tablets e smartphones 768px */
+@media screen and (max-width: 768px) {
+    /* Ajusta o menu */
+    .menu {
+        height: auto;
+        background-size: contain, cover;
+        text-align: center;
+    }
+    .optm {
+        flex-direction: column; /* Alinha as opções do menu verticalmente */
+        padding: 10px;
+    }
+
+    /* Ajusta a caixa de imagem */
+    .caixa-imagem {
+        flex-direction: column; /* Alinha a foto e o texto verticalmente */
+        padding: 20px;
+        height: 700px;
+    }
+
+    /* Texto da caixa de imagem */
+    .caixa-texto {
+        max-width: 100%; /* Ocupa 100% da largura */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    /* Foto da requerente */
+    .ft-requerente img {
+        margin: 0;
+        max-width: 50%; /* Diminui a foto para caber na tela */
+    }
+
+    /* Comentários */
+    .comentarios {
+        width: 100%; /* Comentários ocupam a largura total */
+        margin: 10px 0;
+    }
+
+    /* Ajusta o botão fixo */
+    .botao-fixo {
+        width: 50px; /* Reduz o tamanho do botão */
+        height: 50px;
+        padding: 10px;
+    }
+
+    /* Ajusta o carrossel e o texto */
+    .carrossel-container {
+        width: 100%; /* Ocupa 100% da largura */
+    }
+
+    .carrossel-texto {
+        width: 90%;
+        margin: 20px auto; /* Centraliza o texto */
+        transform: none; /* Remove o deslocamento */
+    }
+
+    /* Rodapé */
+    .rodape {
+        flex-direction: column; /* Torna as colunas do rodapé verticais */
+        text-align: center;
+    }
+
+    .rodape-coluna {
+        width: 100%; /* Ocupa a largura total */
+        margin-bottom: 20px; /* Espaço entre as colunas */
+    }
+}
+
+/* smartphones pequenos telas menores que 480px */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Reduz o tamanho do título */
+    }
+
+    .optm {
+        font-size: 16px; /* Reduz o tamanho das opções do menu */
+        padding: 0 10px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .optm a {
+        font-size: 16px; /* Reduz o tamanho das opções do menu */
+        padding: 0 10px;
+    }
+
+    .caixa-texto p, .caixa-texto h2, .caixa-texto h1 {
+        font-size: 14px; /* Reduz o tamanho dos textos */
+    }
+
+    .comentarios img {
+        width: 60px; /* Reduz o tamanho das imagens nos comentários */
+        height: 60px;
+    }
+
+    .local img {
+        width: 100%; /* Ajusta a imagem do local para caber na tela */
+    }
+
+    .local .caixa-texto button {
+        font-size: 14px; /* Reduz o tamanho do botão */
+        padding: 8px 15px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+.botao-fixo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #D4AF37;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao-fixo:hover {
+    background-color: #FFD700;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .optm {
+        flex-direction: column; /* Itens um abaixo do outro */
+        align-items: flex-end; /* Alinha os itens à direita */
+        padding: 10px;
+    }
+}
+
+
